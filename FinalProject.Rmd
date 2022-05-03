@@ -1,14 +1,92 @@
 ---
-title: "Final Project Report"
-author: "AUTHOR NAME(S)"
-date: "Due: DATE"
+title: "Final_Project"
+author: "Miranda Goodman and Kristina Phillips"
+date: "Due: May 4, 2022"
 output: html_notebook
 ---
-
-
-
+### Question: 
+What are the top 5 wind speeds recorded between both Hurricanes and Typhoons? 
 
 ```{r}
-
-
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
 ```
+
+### Hurricane Data - Reading the Data, Data Inspection
+```{r}
+atlantic <- read_csv("atlantic.csv")
+str(atlantic)
+glimpse(atlantic)
+head(atlantic)
+tail(atlantic)
+```
+
+```{r}
+atlantic
+```
+While analyzing the initial data of hurricanes, one can notice that there are over 49,000 rows of storms between the years 1851 and 2016. There will need to be more analyzing of these storms for us to get a better understanding of the top wind speeds. 
+
+### Typhoon Data, Reading the Data, Data Inspection
+```{r}
+pacific <- read.csv("pacific.csv")
+str(pacific)
+glimpse(pacific)
+head(pacific)
+tail(pacific)
+```
+
+```{r}
+pacific
+```
+While analyzing the initial data of typhoons, it can be seen from using str(), glimpse(), head(), and tail(), there are over 26,000 rows of typhoons from the Pacific Ocean. This data will need to be analyzed further to get a better understanding of the wind speeds. 
+
+### Convert the Date data to the Date
+```{r}
+atlantic <- atlantic %>%
+  group_by_all()%>%
+  summarise(atlantic_date = as_datetime(Date), .groups = "keep")
+head(atlantic,3)
+```
+```{r}
+pacific <- pacific %>%
+  group_by_all()%>%
+  summarise(pac_date = as_datetime(Date), .groups = "keep")
+  
+head(pacific,3)
+```
+
+### Join Wind Data between Atlantic and Pacific
+```{r}
+MaxWind <- left_join(atlantic, pacific, by = c("Maximum.Wind"="Maximum.Wind","Maximum.Wind"="Maximum.Wind"))
+
+stormjoin <- full_join(MaxWind,atlantic, pacific, by = c("Maximum.Wind"="Maximum.Wind","Maximum.Wind"="Maximum.Wind"))%>%
+  na.omit%>%
+  ungroup()%>%
+  select(ID, Date, Name)
+
+head(stormjoin,3)
+```
+
+### Top 5 Maximum Wind Speeds
+```{r}
+MaxWind <- atlantic %>%
+  semi_join(atlantic, pacific, by = "Maximum.Wind")
+
+MaxWind%>%
+  group_by(ID)%>%
+  summarise(number_rows = n())%>%
+  arrange(desc(number_rows))%>%
+  head(n=5L)
+
+MaxWind%>%
+  group_by(ID)%>%
+  summarise(number_rows = n())%>%
+  arrange(desc(number_rows))%>%
+  head(n=5L)%>%
+  ggplot(aes(x= ID, y = Maximum.Wind, fill = ID))+
+  geom_bar(stat = "storm")+
+  labs(title = "Maximum Wind of Storms")+
+  theme(axis.text.x = element_text(angle = 90))
+```
+ 
