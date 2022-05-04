@@ -1,0 +1,140 @@
+---
+title: "Capstone Group Evaluations"
+author: "Miranda Goodman evaluating both Kristina Phillips and myself"
+date: "5/4/2022"
+output: pdf_document
+---
+
+
+## Who are you evaluating?
+
+*Kristina Phillips*
+
+# Evaluation Areas
+
+### 1. Intellectual Contributions.
+
+*Understanding the project, doing the research, evaluating and interpreting data, creative efforts and problem solving insight, providing intellectual leadership for group.* 
+
+Score (out of 4): _4__
+
+Justification/Examples:
+
+Found a lot of the data sources and was very collaborative during zoom meetings. This collaboration was when we would write out code and bounce ideas off of each other.
+
+
+### 2. Team Support.
+
+*Enthusiasm, commitment to project, cooperation, respect for other persons’ ideas, willingness to compromise as appropriate, receptiveness to constructive feedback.* 
+
+Score (out of 4): _4__
+
+Justification/Examples:
+
+We had almost daily zoom meetings where we would talk through ideas and ways to go about the project.
+
+
+
+### 3. Communication Contributions. 
+
+*Effectiveness of communication within team, quality of written work, contributions toward creation of presentation and other written work.* 
+
+Score (out of 4): __4__
+
+Justification/Examples:
+
+We shared each others contact information with each other and would text about the next stages of the project.
+
+
+### 4. Time Contributions.
+
+*Keeping team on task, meeting deadlines, following through on plans, attendance at team meetings, does equal share of work.* 
+
+Score (out of 4): _4__
+
+Justification/Examples:
+
+Kristina would create daily zoom meetings for us to work on the project and complete it in a timely manner.
+
+
+
+### 5. Overall / Other Contributions
+
+*Score any additional contributions, general remarks, or overall impression of this person as a member of the group.*
+
+
+Score (out of 4): _4__
+
+Justification/Examples:
+Kristina was a hard worker and was a lot of fun to work with.
+
+
+
+
+# Total Score (out of 20): 20
+
+
+## Who are you evaluating?
+
+*Miranda Goodman (myself)*
+
+# Evaluation Areas
+
+### 1. Intellectual Contributions.
+
+*Understanding the project, doing the research, evaluating and interpreting data, creative efforts and problem solving insight, providing intellectual leadership for group.* 
+
+Score (out of 4): _4__
+
+Justification/Examples:
+
+Wrote out a lot of the code including the MUSMaps and gg plots. I also found the second source for the cancer data.
+
+
+### 2. Team Support.
+
+*Enthusiasm, commitment to project, cooperation, respect for other persons’ ideas, willingness to compromise as appropriate, receptiveness to constructive feedback.* 
+
+Score (out of 4): _4__
+
+Justification/Examples:
+
+We had almost daily zoom meetings where we would talk through ideas and ways to go about the project.
+
+
+
+### 3. Communication Contributions. 
+
+*Effectiveness of communication within team, quality of written work, contributions toward creation of presentation and other written work.* 
+
+Score (out of 4): __4__
+
+Justification/Examples:
+
+We shared each others contact information with each other and would text about the next stages of the project. I also wrote out the observations for each of thevisualization questions.
+
+
+### 4. Time Contributions.
+
+*Keeping team on task, meeting deadlines, following through on plans, attendance at team meetings, does equal share of work.* 
+
+Score (out of 4): _4__
+
+Justification/Examples:
+
+I would attend daily zoom meetings for us to work on the project. I also spent many hours outside of the meetings to do additional research and complete questions.
+
+### 5. Overall / Other Contributions
+
+*Score any additional contributions, general remarks, or overall impression of this person as a member of the group.*
+
+
+Score (out of 4): _4__
+
+Justification/Examples:
+
+Worked hard on this project. I spent a lot of time researching data sets trying to find a second data set to easily join with the initial data set from kaggle.
+
+
+# Total Score (out of 20): 20
+
