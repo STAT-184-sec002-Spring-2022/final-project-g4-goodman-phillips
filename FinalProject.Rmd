@@ -172,7 +172,8 @@ ggplot(Diff_Last_Initial) +
   labs(title = "Difference in Treatment Costs")
 ```
 
-#There appears to be a positive linear relationship between year (2015-2020) and Differencein Average Last Year Cost & Average Initial Year Cost.
+
+There appears to be a positive linear relationship between year (2015-2020) and Difference in Average Last Year Cost & Average Initial Year Cost.
 
 ```{r}
 ggplot(wider) +
@@ -181,7 +182,7 @@ ggplot(wider) +
   geom_point(shape = "circle", size = 1.5, colour = "Black") +
   labs(title = "Pennsylvania's Average Cancer Mortality Rate per Year (2015 to 2020")
 ```
-#There is a negative linear relationship between year (2015-2020) and PA Cancer Mortality Rate.
+There is a negative linear relationship between year (2015-2020) and PA Cancer Mortality Rate.
 
 ```{r}
 ggplot(Cancer_locationSpecified) +
@@ -192,7 +193,7 @@ ggplot(Cancer_locationSpecified) +
   facet_wrap(vars(`Cancer Site`)) +
   labs(title = "Average Cost of Cancer Treatment per Year (2015-2020) per Cancer Site")
 ```
-#The most expensive cancer sites are breast, colorectal (colon), and lung. The least expensive cancer sites are cervix, uterus, and pancreas.
+The most expensive cancer sites are breast, colorectal (colon), and lung. The least expensive cancer sites are cervix, uterus, and pancreas.
 
 ```{r}
 ggplot(cost_rate_year) +
@@ -203,16 +204,19 @@ ggplot(cost_rate_year) +
   ylab("Avg. Cost of Cancer Treatment in U.S. dollars") +
   labs(title = "Avg. Cost of Cancer Treatment & Mortality Rate per Year (2015-2020)", color = "Avg.DeathRate (per100,000)")
 ```
-#As the year and average cost of cancer treatment increases, the average mortality rate per 100,000 people decreases.There appears to be a positive linear relationship between the year (2015 to 2020) and average cost of cancer treatment.
+As the year and average cost of cancer treatment increases, the average mortality rate per 100,000 people decreases.There appears to be a positive linear relationship between the year (2015 to 2020) and average cost of cancer treatment.
 
 ## Why Is This Topic Intersting?
-#This topic is interesting because it not only shows, but enlightens people of the reality of having someone be diagnosed with cancer. We researched the cancer rates over a five year span in the different states, with other factors of finances playing a major role in the data. We were curious to see whether the rate of death would increase or decrease over the five year span, as well as the costs of different cancer treatments and what the mortality rates are in each state.
+This topic is interesting because it not only shows, but enlightens people of the reality of having someone be diagnosed with cancer. We researched the cancer rates over a five year span in the different states, with other factors of finances playing a major role in the data. We were curious to see whether the rate of death would increase or decrease over the five year span, as well as the costs of different cancer treatments and what the mortality rates are in each state.
 
-#Researching and analyzing this topic was interesting to see and learn about because it has been eye opening. Not many people would pay attention to the average cost of someone having to pay for cancer treatment, as well as which states have the highest mortality rate. This speaks loudly in the fact that many people cannot afford all expenses surrounding the cancer treatments, as well as where in the United States treatment is more frequently given. 
+Researching and analyzing this topic was interesting to see and learn about because it has been eye opening. Not many people would pay attention to the average cost of someone having to pay for cancer treatment, as well as which states have the highest mortality rate. This speaks loudly in the fact that many people cannot afford all expenses surrounding the cancer treatments, as well as where in the United States treatment is more frequently given. 
 
 ## Conclusion and Analysis
 
-#After sorting and evaluating the data, the average death rate for cancer patients has decreased from 2015 to 2020. Specifically looking at the transformation of the rate_year, the average rate per year from 2015 decreased by 3%. Also while analyzing the map of the United States from the year 2015 to 2020, the states with the highest mortality rate in 2015 were Oklahoma, Mississippi, and Kentucky. In 2020, those same states and now including West Virginia have appeared to have the highest mortality rate at greater than 170,000. In the year 2015, the map shows Maine, Virginia, and North Carolina to have a mortality rate between 160,000 and 180,000. Later in the year 2020, all three of these states have appeared to drop in mortality rate to less than 150,000. Overall, the majority of the states had a decrease in mortality rate while Kentucky, Mississippi, and Oklahoma have stayed at a relatively constant mortality rate over the five year period.
+After sorting and evaluating the data, the average death rate for cancer patients has decreased from 2015 to 2020. Specifically looking at the transformation of the rate_year, the average rate per year from 2015 decreased by 3%. Also while analyzing the map of the United States from the year 2015 to 2020, the states with the highest mortality rate in 2015 were Oklahoma, Mississippi, and Kentucky. In 2020, those same states and now including West Virginia have appeared to have the highest mortality rate at greater than 170,000. In the year 2015, the map shows Maine, Virginia, and North Carolina to have a mortality rate between 160,000 and 180,000. Later in the year 2020, all three of these states have appeared to drop in mortality rate to less than 150,000. Overall, the majority of the states had a decrease in mortality rate while Kentucky, Mississippi, and Oklahoma have stayed at a relatively constant mortality rate over the five year period.
 
-#Another conclusion that can be made from this data is that with the average cost of treatment increasing, the mortality rate decreases. In one of the above ggplot created, the graph shows the coordination between the average cost of cancer treatment in US dollars and each year from 2015-2020, while the color represents the average death rate per 100,000. In 2015, the average death rate with $153,000 in cancer treatment costs was greater than 160,000. As compared to 2020, the avergae death rate with a treatment cost of $163,000 was less than 148,000. This shows a decrease in the amount of (rate) deaths per dollars raised for cancer treatment. 
+Another conclusion that can be made from this data is that with the average cost of treatment increasing, the mortality rate decreases. In one of the above ggplot created, the graph shows the coordination between the average cost of cancer treatment in US dollars and each year from 2015-2020, while the color represents the average death rate per 100,000. In 2015, the average death rate with 153,000 dollars in cancer treatment costs was greater than 160,000. As compared to 2020, the avergae death rate with a treatment cost of 163,000 dollars was less than 148,000. This shows a decrease in the amount of (rate) deaths per dollars raised for cancer treatment. 
+
+## Answering the initial question: How have cancer rates changed over a five year time period? (2015-2020)
+According to our data sources and observations made, we were able to see drastic differences in the cancer death rate from 2015 to 2020. After looking at the choropleth maps of each year, the scales of the mortality rates between the years has decreased. In 2015, the sclaes range begins just below 140 and goes well beyond 180 while in 2020 the scales range begins at 120 and goes just beyond 170. This justifies that although the colors displayed change slightly, the scaling change provides more of an explanation that the cancer death rate from years 2015 to 2020 has decreased. Moreover, after analyzing our data sets, we did continue to make inferences and consider new questions listed below.
 

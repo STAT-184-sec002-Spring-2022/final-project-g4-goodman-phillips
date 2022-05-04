@@ -1,18 +1,59 @@
 ---
-title: "Initial EDA"
+title: "Final Project Initial EDA"
+author: "Miranda Goodman and Kristina Phillips"
+date: "Due: April 19, 2022"
 output: html_notebook
 ---
+### Question: 
+How have cancer rates changed over a five year time period?
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
+# Data Table 1
 ```{r}
-plot(cars)
+library(tidyverse)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+```{r}
+cancer <- read_csv("cancer.csv")
+str(cancer)
+```
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+```{r}
+cancer
+```
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+Origin/Purpose: 
+This data table was collected and represents the amount of deaths from each state from the years 2014-2020. The purpose of this data is analyze the amount of deaths due to cancer from over a certain amount of years across every state in the United States. We found our data source on the CDC website. Our first data set provides information on cancer mortality by state from 2014 to 2020. It displays variables such as year, state, death rate, number of deaths, and a url to that states specific informational page. The number of deaths were calculated per 100,000 total population. The data is collected by the CDC through the help of each states health department.
+
+Key Variables: 
+Some of the key variables in this data are year, state, death, and rate. This data lets us look at each year and state to analyze the rates and amount of deaths that happen with cancer. This data can let us compare the amount of deaths per state per year to look at the amount of change.  
+
+Investigating Potential Outliers: 
+Some outliers could include the total amount of deaths - some of this may not be entirely accurate, and the rates may not be exact.  
+
+Considering for transforming, mutating, or recoding variables:
+What we would like to do is analyze the rates at which cancer patients pass and see if there is any change in the rates over the years. 
+
+# Data Table 2
+```{r}
+cancer_cost <- read_csv("cancer_costs.csv") 
+str(cancer_cost)
+```
+
+```{r}
+cancer_cost
+```
+Origin/Purpose: 
+This data table was collected to look at a variety of variables (age, sex, overall cost, year, and initial and final cost) of people dealing with cancer and cancer treatment. The purpose of this data is to analyze the different costs of different states and times dealing with cancer. It displays variables such as the cancer site, year, sex, age, incidence and survival assumptions, annual cost increase, total costs, initial year after diagnosis cost, continuing phase cost, and last year of life cost. We found our second data source on Kaggle. The intended purpose for collecting this data was to analyze US expenditures on cancer care.
+
+Key Variables: 
+Some of the key variables in this data are year, sex, age, annual, initial, and final cost. This data lets us compare the different costs of cancer patients of all sexes and ages over a certain period of time. 
+
+Investigating Potential Outliers: 
+Some potential outliers could be that the "sex" category is not exactly split between males and females. Another outlier could be that the costs may not be exact and there coould be some missing money data, as not every person may have been accounted for.  
+
+Considering for transforming, mutating, or recoding variables:
+What we would like to do is analyze the cost at which cancer patients spend and see if there is any change in the rates of the different costs over the years between 2015 and 2020. 
+
+Address Research Question Based on Observations:
+Based on the data we have we have to minimize the data slightly to get more of a condensed data set. Our guess would be that the rates would decrease as the years progress (based on a possible outlier of advcanced technology). 
+

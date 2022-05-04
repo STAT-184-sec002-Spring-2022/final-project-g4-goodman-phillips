@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Morgan Goodman and Kristina Phillips" />
+<meta name="author" content="Miranda Goodman and Kristina Phillips" />
 
 
-<title>Final Project Checklist</title>
+<title>Final Project Initial EDA</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1755,120 +1755,112 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Final Project Checklist</h1>
-<h4 class="author">Morgan Goodman and Kristina Phillips</h4>
-<h4 class="date">Due: April 18, 2022</h4>
+<h1 class="title toc-ignore">Final Project Initial EDA</h1>
+<h4 class="author">Miranda Goodman and Kristina Phillips</h4>
+<h4 class="date">Due: April 19, 2022</h4>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<div id="purpose" class="section level1">
-<h1>Purpose</h1>
-<p><em>This document is required to indicate where various requirements
-can be found within the <code>Rmd</code> that produced your Final
-Project Report. You must</em> <strong>indicate line numbers as they
-appear in your final <code>Rmd</code> document</strong> <em>accompanying
-each of the following required tasks. Points will be deducted if line
-numbers are missing or differ significantly from the <code>Rmd</code> of
-your submitted Final Project Report.</em></p>
-<div id="example-for-illustration" class="section level3">
-<h3>Example (for illustration)</h3>
-<ol style="list-style-type: upper-alpha">
-<li><p>Rmd Line number for title: 2</p></li>
-<li><p>Rmd Line number for author names: 3</p></li>
-<li><p>Rmd Line number for due date: 4</p></li>
-</ol>
+<div id="question" class="section level3">
+<h3>Question:</h3>
+<p>How have cancer rates changed over a five year time period?</p>
 </div>
+<div id="data-table-1" class="section level1">
+<h1>Data Table 1</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FuY2VyIDwtIHJlYWRfY3N2KFwiY2FuY2VyLmNzdlwiKVxuc3RyKGNhbmNlcilcbmBgYCJ9 -->
+<pre class="r"><code>cancer &lt;- read_csv(&quot;cancer.csv&quot;)
+str(cancer)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FuY2VyXG5gYGAifQ== -->
+<pre class="r"><code>cancer</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Origin/Purpose: This data table was collected and represents the
+amount of deaths from each state from the years 2014-2020. The purpose
+of this data is analyze the amount of deaths due to cancer from over a
+certain amount of years across every state in the United States. We
+found our data source on the CDC website. Our first data set provides
+information on cancer mortality by state from 2014 to 2020. It displays
+variables such as year, state, death rate, number of deaths, and a url
+to that states specific informational page. The number of deaths were
+calculated per 100,000 total population. The data is collected by the
+CDC through the help of each states health department.</p>
+<p>Key Variables: Some of the key variables in this data are year,
+state, death, and rate. This data lets us look at each year and state to
+analyze the rates and amount of deaths that happen with cancer. This
+data can let us compare the amount of deaths per state per year to look
+at the amount of change.</p>
+<p>Investigating Potential Outliers: Some outliers could include the
+total amount of deaths - some of this may not be entirely accurate, and
+the rates may not be exact.</p>
+<p>Considering for transforming, mutating, or recoding variables: What
+we would like to do is analyze the rates at which cancer patients pass
+and see if there is any change in the rates over the years.</p>
 </div>
-<div id="final-project-requirements" class="section level1">
-<h1>Final Project Requirements</h1>
-<div id="data-access" class="section level3">
-<h3>Data Access</h3>
-<p><em>Description: (1) Analysis includes at least two different data
-sources. (2) Primary data source may NOT be loaded from an R
-package–though supporting data may. (3) Access to all data sources is
-contained within the analysis. (4) Imported data is inspected at
-beginning of analysis using one or more R functions: e.g., str, glimpse,
-head, tail, names, nrow, etc</em></p>
-<ol style="list-style-type: upper-alpha">
-<li><p>.Rmd Line numbers where at least two different data sources are
-imported: 23, 31</p></li>
-<li><p>.Rmd Line numbers for inspecting data intake: 24-27,
-32-35</p></li>
-</ol>
-</div>
-<div id="data-wrangling-cleaning-ect-5-out-of-7-required" class="section level3">
-<h3>Data Wrangling / Cleaning / ect (5 out of 7 required)</h3>
-<ol style="list-style-type: upper-alpha">
-<li><p>.Rmd Line number(s) for general data wrangling: 60-63</p></li>
-<li><p>.Rmd Line number(s) for a join operation: 96-100</p></li>
-<li><p>.Rmd Line number(s) for a pivot_wider or pivot_longer operation
-(or equivalent): 49-54</p></li>
-<li><p>.Rmd Line number(s) for use of regular expressions:
-112-117</p></li>
-<li><p>.Rmd Line number(s) for use of reduction and/or transformation
-functions: 105-109</p></li>
-<li><p>.Rmd Line number(s) for use of user-defined functions:
-——</p></li>
-<li><p>.Rmd Line number(s) for use of loops and/or control flow:
-——–</p></li>
-</ol>
-</div>
-<div id="data-visualization-3-of-5-required" class="section level3">
-<h3>Data Visualization (3 of 5 required)</h3>
-<ol style="list-style-type: upper-alpha">
-<li><p>.Rmd Line numbers for use of multiple different geoms:
-169-173</p></li>
-<li><p>.Rmd Line number(s) for use of multiple aesthetics:
-188-194</p></li>
-<li><p>.Rmd Line number(s) for use of layered graphics: —–</p></li>
-<li><p>.Rmd Line number(s) for use of leaflet or choropleth maps:
-121-126</p></li>
-<li><p>.Rmd Line number(s) for use of decision tree or dendogram
-results: ——–</p></li>
-</ol>
-</div>
-<div id="other-requirements-nothing-for-you-to-report-in-this-guidance-document" class="section level3">
-<h3>Other requirements (Nothing for you to report in this Guidance
-Document)</h3>
-<ol style="list-style-type: upper-alpha">
-<li><p><em>All data visualizations</em> must be relevant to the stated
-research question, and the report must include at least one effective
-display of many–at least 3–variables (excluding maps or decision
-trees)</p></li>
-<li><p><em>Code quality:</em> Code formatting is consistent with Style
-Guide Appendix of DataComputing eBook. Specifically, all code chunks
-demonstrate proficiency with (1) meaningful object names (2) proper use
-of white space especially with respect to infix operators, chain
-operators, commas, brackets/parens, etc (3) use of <code>&lt;-</code>
-assignment operator throughout (4) use of meaningful comments.</p></li>
-<li><p><em>Narrative quality:</em> The narrative text (1) clearly states
-one research question that motivates the overall analysis, (2) explains
-reasoning for each significant step in the analysis and it’s
-relationship to the research question, (3) explains significant findings
-and conclusions as they relate to the research question, and (4) is
-completely free of errors in spelling and grammar</p></li>
-<li><p><em>Overall Quality:</em> Submitted project shows significant
-effort to produce a high-quality and thoughtful analysis that showcases
-STAT 184 skills. (2) The project must be self-contained, such that the
-analysis can be entirely rerun without errors. (3) Analysis is coherent,
-well-organized, and free of extraneous content such as data dumps,
-unrelated graphs, and other content that is not overtly connected to the
-research question.</p></li>
-<li><p><em>GitHub Repo:</em> (1) At least 6 commits pushed to provided
-GitHub Repo from top contributor on the project &amp; at least 3 commits
-from each teammate. (2) all commits must make a substantive contribution
-to the project &amp; have an informative commit message that summarizes
-the contribution (3) Final Project is entirely contained in the provided
-Repo, including data sources, documents, and anything else that another
-analyst would need to reproduce your entire analysis.</p></li>
-</ol>
+<div id="data-table-2" class="section level1">
+<h1>Data Table 2</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FuY2VyX2Nvc3QgPC0gcmVhZF9jc3YoXCJjYW5jZXJfY29zdHMuY3N2XCIpIFxuc3RyKGNhbmNlcl9jb3N0KVxuYGBgIn0= -->
+<pre class="r"><code>cancer_cost &lt;- read_csv(&quot;cancer_costs.csv&quot;) 
+str(cancer_cost)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FuY2VyX2Nvc3RcbmBgYCJ9 -->
+<pre class="r"><code>cancer_cost</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Origin/Purpose: This data table was collected to look at a variety of
+variables (age, sex, overall cost, year, and initial and final cost) of
+people dealing with cancer and cancer treatment. The purpose of this
+data is to analyze the different costs of different states and times
+dealing with cancer. It displays variables such as the cancer site,
+year, sex, age, incidence and survival assumptions, annual cost
+increase, total costs, initial year after diagnosis cost, continuing
+phase cost, and last year of life cost. We found our second data source
+on Kaggle. The intended purpose for collecting this data was to analyze
+US expenditures on cancer care.</p>
+<p>Key Variables: Some of the key variables in this data are year, sex,
+age, annual, initial, and final cost. This data lets us compare the
+different costs of cancer patients of all sexes and ages over a certain
+period of time.</p>
+<p>Investigating Potential Outliers: Some potential outliers could be
+that the “sex” category is not exactly split between males and females.
+Another outlier could be that the costs may not be exact and there
+coould be some missing money data, as not every person may have been
+accounted for.</p>
+<p>Considering for transforming, mutating, or recoding variables: What
+we would like to do is analyze the cost at which cancer patients spend
+and see if there is any change in the rates of the different costs over
+the years between 2015 and 2020.</p>
+<p>Address Research Question Based on Observations: Based on the data we
+have we have to minimize the data slightly to get more of a condensed
+data set. Our guess would be that the rates would decrease as the years
+progress (based on a possible outlier of advcanced technology).</p>
 <!-- rnb-text-end -->
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogJ0ZpbmFsIFByb2plY3QgQ2hlY2tsaXN0Jw0KYXV0aG9yOiAiTW9yZ2FuIEdvb2RtYW4gYW5kIEtyaXN0aW5hIFBoaWxsaXBzIg0KZGF0ZTogIkR1ZTogQXByaWwgMTgsIDIwMjIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFB1cnBvc2UNCg0KKlRoaXMgZG9jdW1lbnQgaXMgcmVxdWlyZWQgdG8gaW5kaWNhdGUgd2hlcmUgdmFyaW91cyByZXF1aXJlbWVudHMgY2FuIGJlIGZvdW5kIHdpdGhpbiB0aGUgYFJtZGAgdGhhdCBwcm9kdWNlZCB5b3VyIEZpbmFsIFByb2plY3QgUmVwb3J0LiAgWW91IG11c3QqICoqaW5kaWNhdGUgbGluZSBudW1iZXJzIGFzIHRoZXkgYXBwZWFyIGluIHlvdXIgZmluYWwgYFJtZGAgZG9jdW1lbnQqKiAqYWNjb21wYW55aW5nIGVhY2ggb2YgdGhlIGZvbGxvd2luZyByZXF1aXJlZCB0YXNrcy4gUG9pbnRzIHdpbGwgYmUgZGVkdWN0ZWQgaWYgbGluZSBudW1iZXJzIGFyZSBtaXNzaW5nIG9yIGRpZmZlciBzaWduaWZpY2FudGx5IGZyb20gdGhlIGBSbWRgIG9mIHlvdXIgc3VibWl0dGVkIEZpbmFsIFByb2plY3QgUmVwb3J0LiogIA0KDQojIyMgRXhhbXBsZSAoZm9yIGlsbHVzdHJhdGlvbikgDQoNCihBKSBSbWQgTGluZSBudW1iZXIgZm9yIHRpdGxlOiAyDQoNCihCKSBSbWQgTGluZSBudW1iZXIgZm9yIGF1dGhvciBuYW1lczogMw0KDQooQykgUm1kIExpbmUgbnVtYmVyIGZvciBkdWUgZGF0ZTogNA0KDQojIEZpbmFsIFByb2plY3QgUmVxdWlyZW1lbnRzDQoNCg0KIyMjIERhdGEgQWNjZXNzDQoNCipEZXNjcmlwdGlvbjogKDEpIEFuYWx5c2lzIGluY2x1ZGVzIGF0IGxlYXN0IHR3byBkaWZmZXJlbnQgZGF0YSBzb3VyY2VzLiAoMikgUHJpbWFyeSBkYXRhIHNvdXJjZSBtYXkgTk9UIGJlIGxvYWRlZCBmcm9tIGFuIFIgcGFja2FnZS0tdGhvdWdoIHN1cHBvcnRpbmcgZGF0YSBtYXkuICgzKSBBY2Nlc3MgdG8gYWxsIGRhdGEgc291cmNlcyBpcyBjb250YWluZWQgd2l0aGluIHRoZSBhbmFseXNpcy4gKDQpIEltcG9ydGVkIGRhdGEgaXMgaW5zcGVjdGVkIGF0IGJlZ2lubmluZyBvZiBhbmFseXNpcyB1c2luZyBvbmUgb3IgbW9yZSBSIGZ1bmN0aW9uczogZS5nLiwgc3RyLCBnbGltcHNlLCBoZWFkLCB0YWlsLCBuYW1lcywgbnJvdywgZXRjKg0KDQooQSkgLlJtZCBMaW5lIG51bWJlcnMgd2hlcmUgYXQgbGVhc3QgdHdvIGRpZmZlcmVudCBkYXRhIHNvdXJjZXMgYXJlIGltcG9ydGVkOiAgMjMsIDMxDQoNCg0KKEIpIC5SbWQgTGluZSBudW1iZXJzIGZvciBpbnNwZWN0aW5nIGRhdGEgaW50YWtlOiAgMjQtMjcsIDMyLTM1DQoNCg0KIyMjIERhdGEgV3JhbmdsaW5nIC8gQ2xlYW5pbmcgLyBlY3QgKDUgb3V0IG9mIDcgcmVxdWlyZWQpDQoNCg0KKEEpIC5SbWQgTGluZSBudW1iZXIocykgZm9yIGdlbmVyYWwgZGF0YSB3cmFuZ2xpbmc6IDYwLTYzDQoNCg0KKEIpIC5SbWQgTGluZSBudW1iZXIocykgZm9yIGEgam9pbiBvcGVyYXRpb246IDk2LTEwMA0KDQoNCihDKSAuUm1kIExpbmUgbnVtYmVyKHMpIGZvciBhIHBpdm90X3dpZGVyIG9yIHBpdm90X2xvbmdlciBvcGVyYXRpb24gKG9yIGVxdWl2YWxlbnQpOiA0OS01NA0KDQoNCihEKSAuUm1kIExpbmUgbnVtYmVyKHMpIGZvciB1c2Ugb2YgcmVndWxhciBleHByZXNzaW9uczogMTEyLTExNw0KDQoNCihFKSAuUm1kIExpbmUgbnVtYmVyKHMpIGZvciB1c2Ugb2YgcmVkdWN0aW9uIGFuZC9vciB0cmFuc2Zvcm1hdGlvbiBmdW5jdGlvbnM6IDEwNS0xMDkNCg0KDQooRikgLlJtZCBMaW5lIG51bWJlcihzKSBmb3IgdXNlIG9mIHVzZXItZGVmaW5lZCBmdW5jdGlvbnM6IC0tLS0tLQ0KDQoNCihHKSAuUm1kIExpbmUgbnVtYmVyKHMpIGZvciB1c2Ugb2YgbG9vcHMgYW5kL29yIGNvbnRyb2wgZmxvdzogLS0tLS0tLS0NCg0KDQoNCg0KDQojIyMgRGF0YSBWaXN1YWxpemF0aW9uICgzIG9mIDUgcmVxdWlyZWQpDQoNCg0KKEEpIC5SbWQgTGluZSBudW1iZXJzIGZvciB1c2Ugb2YgbXVsdGlwbGUgZGlmZmVyZW50IGdlb21zOiAgMTY5LTE3Mw0KDQooQikgLlJtZCBMaW5lIG51bWJlcihzKSBmb3IgdXNlIG9mIG11bHRpcGxlIGFlc3RoZXRpY3M6ICAxODgtMTk0DQoNCihDKSAuUm1kIExpbmUgbnVtYmVyKHMpIGZvciB1c2Ugb2YgbGF5ZXJlZCBncmFwaGljczogIC0tLS0tDQoNCihEKSAuUm1kIExpbmUgbnVtYmVyKHMpIGZvciB1c2Ugb2YgbGVhZmxldCBvciBjaG9yb3BsZXRoIG1hcHM6ICAxMjEtMTI2DQoNCihFKSAuUm1kIExpbmUgbnVtYmVyKHMpIGZvciB1c2Ugb2YgZGVjaXNpb24gdHJlZSBvciBkZW5kb2dyYW0gcmVzdWx0czogICAgLS0tLS0tLS0NCg0KDQoNCg0KIyMjIE90aGVyIHJlcXVpcmVtZW50cyAoTm90aGluZyBmb3IgeW91IHRvIHJlcG9ydCBpbiB0aGlzIEd1aWRhbmNlIERvY3VtZW50KQ0KDQooQSkgKkFsbCBkYXRhIHZpc3VhbGl6YXRpb25zKiBtdXN0IGJlIHJlbGV2YW50IHRvIHRoZSBzdGF0ZWQgcmVzZWFyY2ggcXVlc3Rpb24sIGFuZCB0aGUgcmVwb3J0IG11c3QgaW5jbHVkZSBhdCBsZWFzdCBvbmUgZWZmZWN0aXZlIGRpc3BsYXkgb2YgbWFueS0tYXQgbGVhc3QgMy0tdmFyaWFibGVzIChleGNsdWRpbmcgbWFwcyBvciBkZWNpc2lvbiB0cmVlcykNCg0KKEIpICpDb2RlIHF1YWxpdHk6KiBDb2RlIGZvcm1hdHRpbmcgaXMgY29uc2lzdGVudCB3aXRoIFN0eWxlIEd1aWRlIEFwcGVuZGl4IG9mIERhdGFDb21wdXRpbmcgZUJvb2suIFNwZWNpZmljYWxseSwgYWxsIGNvZGUgY2h1bmtzIGRlbW9uc3RyYXRlIHByb2ZpY2llbmN5IHdpdGggKDEpIG1lYW5pbmdmdWwgb2JqZWN0IG5hbWVzICgyKSBwcm9wZXIgdXNlIG9mIHdoaXRlIHNwYWNlIGVzcGVjaWFsbHkgd2l0aCByZXNwZWN0IHRvIGluZml4IG9wZXJhdG9ycywgY2hhaW4gb3BlcmF0b3JzLCBjb21tYXMsIGJyYWNrZXRzL3BhcmVucywgZXRjICgzKSB1c2Ugb2YgYDwtYCBhc3NpZ25tZW50IG9wZXJhdG9yIHRocm91Z2hvdXQgKDQpIHVzZSBvZiBtZWFuaW5nZnVsIGNvbW1lbnRzLg0KDQooQykgKk5hcnJhdGl2ZSBxdWFsaXR5OiogVGhlIG5hcnJhdGl2ZSB0ZXh0ICgxKSBjbGVhcmx5IHN0YXRlcyBvbmUgcmVzZWFyY2ggcXVlc3Rpb24gdGhhdCBtb3RpdmF0ZXMgdGhlIG92ZXJhbGwgYW5hbHlzaXMsICgyKSBleHBsYWlucyByZWFzb25pbmcgZm9yIGVhY2ggc2lnbmlmaWNhbnQgc3RlcCBpbiB0aGUgYW5hbHlzaXMgYW5kIGl0J3MgcmVsYXRpb25zaGlwIHRvIHRoZSByZXNlYXJjaCBxdWVzdGlvbiwgKDMpIGV4cGxhaW5zIHNpZ25pZmljYW50IGZpbmRpbmdzIGFuZCBjb25jbHVzaW9ucyBhcyB0aGV5IHJlbGF0ZSB0byB0aGUgcmVzZWFyY2ggcXVlc3Rpb24sIGFuZCAoNCkgaXMgY29tcGxldGVseSBmcmVlIG9mIGVycm9ycyBpbiBzcGVsbGluZyBhbmQgZ3JhbW1hcg0KDQooRCkgKk92ZXJhbGwgUXVhbGl0eToqIFN1Ym1pdHRlZCBwcm9qZWN0IHNob3dzIHNpZ25pZmljYW50IGVmZm9ydCB0byBwcm9kdWNlIGEgaGlnaC1xdWFsaXR5IGFuZCB0aG91Z2h0ZnVsIGFuYWx5c2lzIHRoYXQgc2hvd2Nhc2VzIFNUQVQgMTg0IHNraWxscy4gKDIpIFRoZSBwcm9qZWN0IG11c3QgYmUgc2VsZi1jb250YWluZWQsIHN1Y2ggdGhhdCB0aGUgYW5hbHlzaXMgY2FuIGJlIGVudGlyZWx5IHJlcnVuIHdpdGhvdXQgZXJyb3JzLiAoMykgQW5hbHlzaXMgaXMgY29oZXJlbnQsIHdlbGwtb3JnYW5pemVkLCBhbmQgZnJlZSBvZiBleHRyYW5lb3VzIGNvbnRlbnQgc3VjaCBhcyBkYXRhIGR1bXBzLCB1bnJlbGF0ZWQgZ3JhcGhzLCBhbmQgb3RoZXIgY29udGVudCB0aGF0IGlzIG5vdCBvdmVydGx5IGNvbm5lY3RlZCB0byB0aGUgcmVzZWFyY2ggcXVlc3Rpb24uDQoNCihFKSAqR2l0SHViIFJlcG86KiAoMSkgQXQgbGVhc3QgNiBjb21taXRzIHB1c2hlZCB0byBwcm92aWRlZCBHaXRIdWIgUmVwbyBmcm9tIHRvcCBjb250cmlidXRvciBvbiB0aGUgcHJvamVjdCAmIGF0IGxlYXN0IDMgY29tbWl0cyBmcm9tIGVhY2ggdGVhbW1hdGUuICAoMikgYWxsIGNvbW1pdHMgbXVzdCBtYWtlIGEgc3Vic3RhbnRpdmUgY29udHJpYnV0aW9uIHRvIHRoZSBwcm9qZWN0ICYgaGF2ZSBhbiBpbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZSB0aGF0IHN1bW1hcml6ZXMgdGhlIGNvbnRyaWJ1dGlvbiAoMykgRmluYWwgUHJvamVjdCBpcyBlbnRpcmVseSBjb250YWluZWQgaW4gdGhlIHByb3ZpZGVkIFJlcG8sIGluY2x1ZGluZyBkYXRhIHNvdXJjZXMsIGRvY3VtZW50cywgYW5kIGFueXRoaW5nIGVsc2UgdGhhdCBhbm90aGVyIGFuYWx5c3Qgd291bGQgbmVlZCB0byByZXByb2R1Y2UgeW91ciBlbnRpcmUgYW5hbHlzaXMuDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkZpbmFsIFByb2plY3QgSW5pdGlhbCBFREEiDQphdXRob3I6ICJNaXJhbmRhIEdvb2RtYW4gYW5kIEtyaXN0aW5hIFBoaWxsaXBzIg0KZGF0ZTogIkR1ZTogQXByaWwgMTksIDIwMjIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KIyMjIFF1ZXN0aW9uOiANCkhvdyBoYXZlIGNhbmNlciByYXRlcyBjaGFuZ2VkIG92ZXIgYSBmaXZlIHllYXIgdGltZSBwZXJpb2Q/DQoNCiMgRGF0YSBUYWJsZSAxDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KY2FuY2VyIDwtIHJlYWRfY3N2KCJjYW5jZXIuY3N2IikNCnN0cihjYW5jZXIpDQpgYGANCg0KYGBge3J9DQpjYW5jZXINCmBgYA0KDQpPcmlnaW4vUHVycG9zZTogDQpUaGlzIGRhdGEgdGFibGUgd2FzIGNvbGxlY3RlZCBhbmQgcmVwcmVzZW50cyB0aGUgYW1vdW50IG9mIGRlYXRocyBmcm9tIGVhY2ggc3RhdGUgZnJvbSB0aGUgeWVhcnMgMjAxNC0yMDIwLiBUaGUgcHVycG9zZSBvZiB0aGlzIGRhdGEgaXMgYW5hbHl6ZSB0aGUgYW1vdW50IG9mIGRlYXRocyBkdWUgdG8gY2FuY2VyIGZyb20gb3ZlciBhIGNlcnRhaW4gYW1vdW50IG9mIHllYXJzIGFjcm9zcyBldmVyeSBzdGF0ZSBpbiB0aGUgVW5pdGVkIFN0YXRlcy4gV2UgZm91bmQgb3VyIGRhdGEgc291cmNlIG9uIHRoZSBDREMgd2Vic2l0ZS4gT3VyIGZpcnN0IGRhdGEgc2V0IHByb3ZpZGVzIGluZm9ybWF0aW9uIG9uIGNhbmNlciBtb3J0YWxpdHkgYnkgc3RhdGUgZnJvbSAyMDE0IHRvIDIwMjAuIEl0IGRpc3BsYXlzIHZhcmlhYmxlcyBzdWNoIGFzIHllYXIsIHN0YXRlLCBkZWF0aCByYXRlLCBudW1iZXIgb2YgZGVhdGhzLCBhbmQgYSB1cmwgdG8gdGhhdCBzdGF0ZXMgc3BlY2lmaWMgaW5mb3JtYXRpb25hbCBwYWdlLiBUaGUgbnVtYmVyIG9mIGRlYXRocyB3ZXJlIGNhbGN1bGF0ZWQgcGVyIDEwMCwwMDAgdG90YWwgcG9wdWxhdGlvbi4gVGhlIGRhdGEgaXMgY29sbGVjdGVkIGJ5IHRoZSBDREMgdGhyb3VnaCB0aGUgaGVscCBvZiBlYWNoIHN0YXRlcyBoZWFsdGggZGVwYXJ0bWVudC4NCg0KS2V5IFZhcmlhYmxlczogDQpTb21lIG9mIHRoZSBrZXkgdmFyaWFibGVzIGluIHRoaXMgZGF0YSBhcmUgeWVhciwgc3RhdGUsIGRlYXRoLCBhbmQgcmF0ZS4gVGhpcyBkYXRhIGxldHMgdXMgbG9vayBhdCBlYWNoIHllYXIgYW5kIHN0YXRlIHRvIGFuYWx5emUgdGhlIHJhdGVzIGFuZCBhbW91bnQgb2YgZGVhdGhzIHRoYXQgaGFwcGVuIHdpdGggY2FuY2VyLiBUaGlzIGRhdGEgY2FuIGxldCB1cyBjb21wYXJlIHRoZSBhbW91bnQgb2YgZGVhdGhzIHBlciBzdGF0ZSBwZXIgeWVhciB0byBsb29rIGF0IHRoZSBhbW91bnQgb2YgY2hhbmdlLiAgDQoNCkludmVzdGlnYXRpbmcgUG90ZW50aWFsIE91dGxpZXJzOiANClNvbWUgb3V0bGllcnMgY291bGQgaW5jbHVkZSB0aGUgdG90YWwgYW1vdW50IG9mIGRlYXRocyAtIHNvbWUgb2YgdGhpcyBtYXkgbm90IGJlIGVudGlyZWx5IGFjY3VyYXRlLCBhbmQgdGhlIHJhdGVzIG1heSBub3QgYmUgZXhhY3QuICANCg0KQ29uc2lkZXJpbmcgZm9yIHRyYW5zZm9ybWluZywgbXV0YXRpbmcsIG9yIHJlY29kaW5nIHZhcmlhYmxlczoNCldoYXQgd2Ugd291bGQgbGlrZSB0byBkbyBpcyBhbmFseXplIHRoZSByYXRlcyBhdCB3aGljaCBjYW5jZXIgcGF0aWVudHMgcGFzcyBhbmQgc2VlIGlmIHRoZXJlIGlzIGFueSBjaGFuZ2UgaW4gdGhlIHJhdGVzIG92ZXIgdGhlIHllYXJzLiANCg0KIyBEYXRhIFRhYmxlIDINCmBgYHtyfQ0KY2FuY2VyX2Nvc3QgPC0gcmVhZF9jc3YoImNhbmNlcl9jb3N0cy5jc3YiKSANCnN0cihjYW5jZXJfY29zdCkNCmBgYA0KDQpgYGB7cn0NCmNhbmNlcl9jb3N0DQpgYGANCk9yaWdpbi9QdXJwb3NlOiANClRoaXMgZGF0YSB0YWJsZSB3YXMgY29sbGVjdGVkIHRvIGxvb2sgYXQgYSB2YXJpZXR5IG9mIHZhcmlhYmxlcyAoYWdlLCBzZXgsIG92ZXJhbGwgY29zdCwgeWVhciwgYW5kIGluaXRpYWwgYW5kIGZpbmFsIGNvc3QpIG9mIHBlb3BsZSBkZWFsaW5nIHdpdGggY2FuY2VyIGFuZCBjYW5jZXIgdHJlYXRtZW50LiBUaGUgcHVycG9zZSBvZiB0aGlzIGRhdGEgaXMgdG8gYW5hbHl6ZSB0aGUgZGlmZmVyZW50IGNvc3RzIG9mIGRpZmZlcmVudCBzdGF0ZXMgYW5kIHRpbWVzIGRlYWxpbmcgd2l0aCBjYW5jZXIuIEl0IGRpc3BsYXlzIHZhcmlhYmxlcyBzdWNoIGFzIHRoZSBjYW5jZXIgc2l0ZSwgeWVhciwgc2V4LCBhZ2UsIGluY2lkZW5jZSBhbmQgc3Vydml2YWwgYXNzdW1wdGlvbnMsIGFubnVhbCBjb3N0IGluY3JlYXNlLCB0b3RhbCBjb3N0cywgaW5pdGlhbCB5ZWFyIGFmdGVyIGRpYWdub3NpcyBjb3N0LCBjb250aW51aW5nIHBoYXNlIGNvc3QsIGFuZCBsYXN0IHllYXIgb2YgbGlmZSBjb3N0LiBXZSBmb3VuZCBvdXIgc2Vjb25kIGRhdGEgc291cmNlIG9uIEthZ2dsZS4gVGhlIGludGVuZGVkIHB1cnBvc2UgZm9yIGNvbGxlY3RpbmcgdGhpcyBkYXRhIHdhcyB0byBhbmFseXplIFVTIGV4cGVuZGl0dXJlcyBvbiBjYW5jZXIgY2FyZS4NCg0KS2V5IFZhcmlhYmxlczogDQpTb21lIG9mIHRoZSBrZXkgdmFyaWFibGVzIGluIHRoaXMgZGF0YSBhcmUgeWVhciwgc2V4LCBhZ2UsIGFubnVhbCwgaW5pdGlhbCwgYW5kIGZpbmFsIGNvc3QuIFRoaXMgZGF0YSBsZXRzIHVzIGNvbXBhcmUgdGhlIGRpZmZlcmVudCBjb3N0cyBvZiBjYW5jZXIgcGF0aWVudHMgb2YgYWxsIHNleGVzIGFuZCBhZ2VzIG92ZXIgYSBjZXJ0YWluIHBlcmlvZCBvZiB0aW1lLiANCg0KSW52ZXN0aWdhdGluZyBQb3RlbnRpYWwgT3V0bGllcnM6IA0KU29tZSBwb3RlbnRpYWwgb3V0bGllcnMgY291bGQgYmUgdGhhdCB0aGUgInNleCIgY2F0ZWdvcnkgaXMgbm90IGV4YWN0bHkgc3BsaXQgYmV0d2VlbiBtYWxlcyBhbmQgZmVtYWxlcy4gQW5vdGhlciBvdXRsaWVyIGNvdWxkIGJlIHRoYXQgdGhlIGNvc3RzIG1heSBub3QgYmUgZXhhY3QgYW5kIHRoZXJlIGNvb3VsZCBiZSBzb21lIG1pc3NpbmcgbW9uZXkgZGF0YSwgYXMgbm90IGV2ZXJ5IHBlcnNvbiBtYXkgaGF2ZSBiZWVuIGFjY291bnRlZCBmb3IuICANCg0KQ29uc2lkZXJpbmcgZm9yIHRyYW5zZm9ybWluZywgbXV0YXRpbmcsIG9yIHJlY29kaW5nIHZhcmlhYmxlczoNCldoYXQgd2Ugd291bGQgbGlrZSB0byBkbyBpcyBhbmFseXplIHRoZSBjb3N0IGF0IHdoaWNoIGNhbmNlciBwYXRpZW50cyBzcGVuZCBhbmQgc2VlIGlmIHRoZXJlIGlzIGFueSBjaGFuZ2UgaW4gdGhlIHJhdGVzIG9mIHRoZSBkaWZmZXJlbnQgY29zdHMgb3ZlciB0aGUgeWVhcnMgYmV0d2VlbiAyMDE1IGFuZCAyMDIwLiANCg0KQWRkcmVzcyBSZXNlYXJjaCBRdWVzdGlvbiBCYXNlZCBvbiBPYnNlcnZhdGlvbnM6DQpCYXNlZCBvbiB0aGUgZGF0YSB3ZSBoYXZlIHdlIGhhdmUgdG8gbWluaW1pemUgdGhlIGRhdGEgc2xpZ2h0bHkgdG8gZ2V0IG1vcmUgb2YgYSBjb25kZW5zZWQgZGF0YSBzZXQuIE91ciBndWVzcyB3b3VsZCBiZSB0aGF0IHRoZSByYXRlcyB3b3VsZCBkZWNyZWFzZSBhcyB0aGUgeWVhcnMgcHJvZ3Jlc3MgKGJhc2VkIG9uIGEgcG9zc2libGUgb3V0bGllciBvZiBhZHZjYW5jZWQgdGVjaG5vbG9neSkuIA0KDQo=</div>
 
 
 
@@ -1915,7 +1907,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("FinalProject_Checklist.Rmd");
+  window.initializeSourceEmbed("Final_initial_EDA.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
