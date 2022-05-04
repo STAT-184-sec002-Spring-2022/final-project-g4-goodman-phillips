@@ -181,5 +181,23 @@ ggplot(wider) +
 #There is a negative linear relationship between year (2015-2020) and PA Cancer Mortality Rate.
 
 ```{r}
-
+ggplot(Cancer_locationSpecified) +
+  aes(x = Year, y = avg_cost) +
+  geom_area(size = 0.5) +
+  xlab("Year (2015-2020)") +
+  ylab("Average Cost of Cancer Treatment in U.S. dollars") +
+  facet_wrap(vars(`Cancer Site`)) +
+  labs(title = "Average Cost of Cancer Treatment per Year (2015-2020) per Cancer Site")
 ```
+#The most expensive cancer sites are breast, colorectal (colon), and lung. The least expensive cancer sites are cervix, uterus, and pancreas.
+
+```{r}
+ggplot(cost_rate_year) +
+  aes(x = Year, y = avg_cost, colour = avg_rate) +
+  geom_point(shape = 20, size = 4.0) + 
+  ylim (140000, 165000) +
+  xlab("Year (2015-2020)") +
+  ylab("Avg. Cost of Cancer Treatment in U.S. dollars") +
+  labs(title = "Avg. Cost of Cancer Treatment & Mortality Rate per Year (2015-2020)", color = "Avg.DeathRate (per100,000)")
+```
+#As the year and average cost of cancer treatment increases, the average mortality rate per 100,000 people decreases.There appears to be a positive linear relationship between the year (2015 to 2020) and average cost of cancer treatment.
