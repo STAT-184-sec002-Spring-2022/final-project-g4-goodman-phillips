@@ -70,13 +70,16 @@ cost_year <-
   mutate(avg_LastYearCost = mean(`Last Year of Life Cost`))%>%
   mutate(avg_InitialYearCost = mean(`Initial Year After Diagnosis Cost`))%>% # mean of the initial year after Diagnosis Cost
   group_by(`Cancer Site`,Year,avg_LastYearCost, avg_InitialYearCost)%>%
-  summarise(avg_cost = mean(`Total Costs`)) # mean of total costs  `summarise()` has grouped output by 'Cancer Site', 'Year', 'avg_LastYearCost'. You can override using the `.groups` argument.
+  summarise(avg_cost = mean(`Total Costs`))
+cost_year
 ```
 
 ```{r}
 all_sites <-
   cost_year%>%
-  filter(grepl("AllSites",`Cancer Site`)) # USED REGULAR EXPRESSION to filter out all cancer sites except AllSites 
+  filter(grepl("AllSites",`Cancer Site`)) # USED REGULAR EXPRESSION to filter out all cancer sites except AllSites
+
+all_sites
 ```
 
 ```{r}
