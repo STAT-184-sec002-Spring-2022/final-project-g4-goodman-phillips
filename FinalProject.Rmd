@@ -5,88 +5,181 @@ date: "Due: May 4, 2022"
 output: html_notebook
 ---
 ### Question: 
-What are the top 5 wind speeds recorded between both Hurricanes and Typhoons? 
+How have cancer rates changed over a five year time period? (2015-2020 Data years that kaggle had)
 
 ```{r}
+# clean up the RStudio environment 
+rm(list = ls())
+# load all packages here: `mosaic`, `tidyverse`, `lubridate`, and all others used
+library(mosaic)
 library(tidyverse)
-library(ggplot2)
 library(lubridate)
+library(dcData)
+library(mosaicData)
+library(esquisse)
 ```
-
-### Hurricane Data - Reading the Data, Data Inspection
+# Initial Loading of first data set.
 ```{r}
-atlantic <- read_csv("atlantic.csv")
-str(atlantic)
-glimpse(atlantic)
-head(atlantic)
-tail(atlantic)
+cancer_cost <- read_csv("cancer_costs.csv", skip=3)
+glimpse(cancer_cost)
+head(cancer_cost)
+tail(cancer_cost)
+summary(cancer_cost)
+```
+# Initial loading of second data set
+```{r}
+cancer <- read_csv("cancer.csv")
+glimpse(cancer)
+head(cancer)
+tail(cancer)
+summary(cancer)
+```
+#Filters 2015-2020
+#General wrangling
+```{r}
+cancer <-
+  cancer%>%
+  select(YEAR, STATE, DEATHS, RATE)%>%
+  filter(row_number() < 301)
+
+cancer
+```
+#Compares death rates between states (Pivot wider)
+```{r}
+wider <-
+  cancer%>%
+  select(YEAR,STATE,RATE)%>%
+  pivot_wider(names_from = STATE, values_from = RATE)
+
+wider
+```
+#2015-2020
+```{r}
+Cost_Type <-
+  cancer_cost %>%
+  select(`Cancer Site`, Year, Sex, Age, `Total Costs`, `Last Year of Life Cost`,`Initial Year After Diagnosis Cost`)%>%
+  filter(row_number() > 574)%>%
+  filter(row_number() <= 1257)
+Cost_Type
+```
+# Finds average cost of a person's last year of life. 
+```{r}
+cost_year <- 
+  Cost_Type%>%
+  group_by(Year)%>%
+  mutate(avg_LastYearCost = mean(`Last Year of Life Cost`))%>%
+  mutate(avg_InitialYearCost = mean(`Initial Year After Diagnosis Cost`))%>% # mean of the initial year after Diagnosis Cost
+  group_by(`Cancer Site`,Year,avg_LastYearCost, avg_InitialYearCost)%>%
+  summarise(avg_cost = mean(`Total Costs`)) # mean of total costs  `summarise()` has grouped output by 'Cancer Site', 'Year', 'avg_LastYearCost'. You can override using the `.groups` argument.
 ```
 
 ```{r}
-atlantic
-```
-While analyzing the initial data of hurricanes, one can notice that there are over 49,000 rows of storms between the years 1851 and 2016. There will need to be more analyzing of these storms for us to get a better understanding of the top wind speeds. 
-
-### Typhoon Data, Reading the Data, Data Inspection
-```{r}
-pacific <- read.csv("pacific.csv")
-str(pacific)
-glimpse(pacific)
-head(pacific)
-tail(pacific)
+all_sites <-
+  cost_year%>%
+  filter(grepl("AllSites",`Cancer Site`)) # USED REGULAR EXPRESSION to filter out all cancer sites except AllSites 
 ```
 
 ```{r}
-pacific
-```
-While analyzing the initial data of typhoons, it can be seen from using str(), glimpse(), head(), and tail(), there are over 26,000 rows of typhoons from the Pacific Ocean. This data will need to be analyzed further to get a better understanding of the wind speeds. 
+Cancer_locationSpecified <-
+  cost_year%>%
+  filter(!grepl("AllSites",`Cancer Site`)) %>%
+  filter(!grepl("Other",`Cancer Site`)) # filtered out AllSites and Other by using regular expression
 
-### Convert the Date data to the Date
+Cancer_locationSpecified
+```
+
 ```{r}
-atlantic <- atlantic %>%
-  group_by_all()%>%
-  summarise(atlantic_date = as_datetime(Date), .groups = "keep")
-head(atlantic,3)
+cost_rate_year <-
+  all_sites%>%
+  inner_join(rate_year, by = c("Year"="YEAR")) # USED AN INNER_JOIN to combine Avg_rate with cost per year for all sites 
+
+cost_rate_year
+```
+
+#Average death rate per year (Reduction/Transformation)
+```{r}
+rate_year<-
+  cancer%>%
+  group_by(YEAR)%>%
+  summarise(avg_rate = mean(RATE))
+rate_year
 ```
 ```{r}
-pacific <- pacific %>%
-  group_by_all()%>%
-  summarise(pac_date = as_datetime(Date), .groups = "keep")
-  
-head(pacific,3)
+Per_2015<-
+  cancer%>%
+  filter(row_number()<301)%>%
+  filter(row_number()>250)
+mUSMap(Per_2015, key="STATE", fill="RATE") +
+  labs(title = "2015 Rate of Cancer Mortality Per State")
 ```
 
-### Join Wind Data between Atlantic and Pacific
 ```{r}
-MaxWind <- left_join(atlantic, pacific, by = c("Maximum.Wind"="Maximum.Wind","Maximum.Wind"="Maximum.Wind"))
-
-stormjoin <- full_join(MaxWind,atlantic, pacific, by = c("Maximum.Wind"="Maximum.Wind","Maximum.Wind"="Maximum.Wind"))%>%
-  na.omit%>%
-  ungroup()%>%
-  select(ID, Date, Name)
-
-head(stormjoin,3)
+Per_2016<-
+  cancer%>%
+  filter(row_number()<251)%>%
+  filter(row_number()>200)
+mUSMap(Per_2016, key="STATE", fill="RATE") +
+  labs(title = "2016 Rate of Cancer Mortality Per State")
 ```
 
-### Top 5 Maximum Wind Speeds
 ```{r}
-MaxWind <- atlantic %>%
-  semi_join(atlantic, pacific, by = "Maximum.Wind")
-
-MaxWind%>%
-  group_by(ID)%>%
-  summarise(number_rows = n())%>%
-  arrange(desc(number_rows))%>%
-  head(n=5L)
-
-MaxWind%>%
-  group_by(ID)%>%
-  summarise(number_rows = n())%>%
-  arrange(desc(number_rows))%>%
-  head(n=5L)%>%
-  ggplot(aes(x= ID, y = Maximum.Wind, fill = ID))+
-  geom_bar(stat = "storm")+
-  labs(title = "Maximum Wind of Storms")+
-  theme(axis.text.x = element_text(angle = 90))
+Per_2017<-
+  cancer%>%
+  filter(row_number()<201)%>%
+  filter(row_number()>150)
+mUSMap(Per_2017, key="STATE", fill="RATE") +
+  labs(title = "2017 Rate of Cancer Mortality Per State")
 ```
- 
+
+```{r}
+Per_2018<-
+  cancer%>%
+  filter(row_number()<151)%>%
+  filter(row_number()>100)
+mUSMap(Per_2018, key="STATE", fill="RATE") +
+  labs(title = "2018 Rate of Cancer Mortality Per State")
+```
+
+```{r}
+Per_2019<-
+  cancer%>%
+  filter(row_number()<101)%>%
+  filter(row_number()>50)
+mUSMap(Per_2019, key="STATE", fill="RATE") +
+  labs(title = "2019 Rate of Cancer Mortality Per State")
+```
+
+```{r}
+Per_2020<-
+  cancer%>%
+  filter(row_number()<51)%>%
+  filter(row_number()>0)
+mUSMap(Per_2020, key="STATE", fill="RATE") +
+  labs(title = "2020 Rate of Cancer Mortality Per State")
+```
+```{r}
+Diff_Last_Initial<-
+  all_sites%>%
+  summarise(Diff_vs = avg_LastYearCost - avg_InitialYearCost)%>%
+  select(Year, `Cancer Site`, Diff_vs)
+ggplot(Diff_Last_Initial) +
+  aes(x = Year, y = Diff_vs) +
+  geom_point(shape = "circle", size = 1.5) +
+  ylab("Difference: Avg. Last Year Cost & Avg. Initial Year Cost") +
+  labs(title = "Difference in Treatment Costs")
+```
+
+#There appears to be a positive linear relationship between year (2015-2020) and Differencein Average Last Year Cost & Average Initial Year Cost.
+
+```{r}
+ggplot(wider) +
+  aes(x = YEAR, y = PA) +
+  ylab("PA Cancer Mortality Rate") +
+  geom_point(shape = "circle", size = 1.5, colour = "Black") +
+  labs(title = "Pennsylvania's Average Cancer Mortality Rate per Year (2015 to 2020")
+```
+#There is a negative linear relationship between year (2015-2020) and PA Cancer Mortality Rate.
+
+```{r}
+
+```
