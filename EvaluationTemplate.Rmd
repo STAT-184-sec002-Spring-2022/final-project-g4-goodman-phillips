@@ -2,7 +2,7 @@
 title: "Capstone Group Evaluations"
 author: "Miranda Goodman evaluating both Kristina Phillips and myself"
 date: "5/4/2022"
-output: pdf_document
+output: html_notebook
 ---
 
 
