@@ -39,13 +39,13 @@ output: html_notebook
 (B) .Rmd Line number(s) for a join operation: 96-100
 
 
-(C) .Rmd Line number(s) for a pivot_wider or pivot_longer operation (or equivalent): 49-54
+(C) .Rmd Line number(s) for a pivot_wider or pivot_longer operation (or equivalent): 52
 
 
-(D) .Rmd Line number(s) for use of regular expressions: 112-117
+(D) .Rmd Line number(s) for use of regular expressions: 87-89, 73
 
 
-(E) .Rmd Line number(s) for use of reduction and/or transformation functions: 105-109
+(E) .Rmd Line number(s) for use of reduction and/or transformation functions: 105-107, 69-73
 
 
 (F) .Rmd Line number(s) for use of user-defined functions: ------
@@ -60,13 +60,13 @@ output: html_notebook
 ### Data Visualization (3 of 5 required)
 
 
-(A) .Rmd Line numbers for use of multiple different geoms:  169-173
+(A) .Rmd Line numbers for use of multiple different geoms:  182, 170, 190
 
-(B) .Rmd Line number(s) for use of multiple aesthetics:  188-194
+(B) .Rmd Line number(s) for use of multiple aesthetics: 200-201, 182, 
 
 (C) .Rmd Line number(s) for use of layered graphics:  -----
 
-(D) .Rmd Line number(s) for use of leaflet or choropleth maps:  121-126
+(D) .Rmd Line number(s) for use of leaflet or choropleth maps:  115-162
 
 (E) .Rmd Line number(s) for use of decision tree or dendogram results:    --------
 
