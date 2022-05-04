@@ -5,7 +5,7 @@ date: "Due: May 4, 2022"
 output: html_notebook
 ---
 ### Question: 
-How have cancer rates changed over a five year time period? (2015-2020 Data years that kaggle had)
+How have cancer rates changed over a five year time period? (2015-2020)
 
 ```{r}
 # clean up the RStudio environment 
